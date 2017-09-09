@@ -1,0 +1,321 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd" id="WebApp_ID" version="3.0">
+  <display-name>DemoWebApp</display-name>
+  <welcome-file-list>
+    <welcome-file>public_JSP/welcome.jsp</welcome-file>
+  </welcome-file-list>
+  
+  <servlet>
+    <servlet-name>RequestResponseAndSessionExaminationServlet</servlet-name>
+    <servlet-class>
+  		osotnikov.demowebapp.web.RequestResponseAndSessionExaminationServlet
+  	</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>RequestResponseAndSessionExaminationServlet</servlet-name>
+    <url-pattern>/actions/RequestResponseAndSessionExaminationServlet</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+    <servlet-name>ForwardingAndRedirectionServlet</servlet-name>
+    <servlet-class>
+  		osotnikov.demowebapp.web.ForwardingAndRedirectionServlet
+  	</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ForwardingAndRedirectionServlet</servlet-name>
+    <url-pattern>/actions/ForwardingAndRedirectionServlet</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+    <servlet-name>RegistrationServlet</servlet-name>
+    <servlet-class>
+  		osotnikov.demowebapp.web.RegistrationServlet
+  	</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>RegistrationServlet</servlet-name>
+    <url-pattern>/secure/user/actions/RegistrationServlet</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+    <servlet-name>LoginServlet</servlet-name>
+    <servlet-class>
+  		osotnikov.demowebapp.web.LoginServlet
+  	</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>LoginServlet</servlet-name>
+    <url-pattern>/secure/user/actions/LoginServlet</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+    <servlet-name>ChooseCommonBackgroundColorServlet</servlet-name>
+    <servlet-class>
+  		osotnikov.demowebapp.web.ChooseCommonBackgroundColorServlet
+  	</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ChooseCommonBackgroundColorServlet</servlet-name>
+    <url-pattern>/actions/ChooseCommonBackgroundColorServlet</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+    <servlet-name>ProfileJsp</servlet-name>
+    <jsp-file>
+  		/secure/authenticated/profile.jsp
+  	</jsp-file>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ProfileJsp</servlet-name>
+    <url-pattern>/secure/authenticated/ProfileJsp</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+    <servlet-name>ComputeFibonacciServlet</servlet-name>
+    <servlet-class>
+  		osotnikov.demowebapp.web.ComputeFibonacciServlet
+  	</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ComputeFibonacciServlet</servlet-name>
+    <url-pattern>/secure/authenticated/actions/ComputeFibonacciServlet</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+    <servlet-name>CountButtonPressServlet</servlet-name>
+    <servlet-class>
+  		osotnikov.demowebapp.web.CountButtonPressServlet
+  	</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>CountButtonPressServlet</servlet-name>
+    <url-pattern>/actions/CountButtonPressServlet/*</url-pattern>
+    <url-pattern>/actions/CountButtonPressServlet/path_παράμετρος_0/*</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>LifecycleScopeAndConcurrencyExperimentsServlet</servlet-name>
+    <servlet-class>
+  		osotnikov.demowebapp.web.LifecycleScopeAndConcurrencyExperimentsServlet
+  	</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>LifecycleScopeAndConcurrencyExperimentsServlet</servlet-name>
+    <url-pattern>/actions/LifecycleScopeAndConcurrencyServlet</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>JdbcDemoServlet</servlet-name>
+    <servlet-class>
+  		osotnikov.demowebapp.web.JdbcDemoServlet
+  	</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>JdbcDemoServlet</servlet-name>
+    <url-pattern>/actions/JdbcDemoServlet</url-pattern>
+  </servlet-mapping>
+  
+
+  <servlet>
+    <servlet-name>inside_WEB-INF</servlet-name>
+    <jsp-file>
+  		/WEB-INF/jsp/inside_WEB-INF.jsp
+  	</jsp-file>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>inside_WEB-INF</servlet-name>
+    <url-pattern>/inside_WEB-INF</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>UnsecuredProfileView</servlet-name>
+    <jsp-file>
+  		/secure/authenticated/profile.jsp
+  	</jsp-file>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>UnsecuredProfileView</servlet-name>
+    <url-pattern>/UnsecuredProfileView</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+    <servlet-name>DemoWsMsgSenderServlet</servlet-name>
+    <servlet-class>
+  		osotnikov.demowebapp.web.DemoWsMsgSenderServlet
+  	</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>DemoWsMsgSenderServlet</servlet-name>
+    <url-pattern>/secure/user/actions/DemoWsMsgSenderServlet</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>DemoWsRemoteSysInfoServlet</servlet-name>
+    <servlet-class>
+  		osotnikov.demowebapp.web.DemoWsRemoteSysInfoServlet
+  	</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>DemoWsRemoteSysInfoServlet</servlet-name>
+    <url-pattern>/secure/user/actions/DemoWsRemoteSysInfoServlet</url-pattern>
+  </servlet-mapping>
+  
+  <filter>
+    <filter-name>AuditingFilter1</filter-name>
+    <filter-class>
+  		osotnikov.demowebapp.web.filter.AuditingFilter1
+  	</filter-class>
+  	
+  	<init-param>
+      <param-name>enabled</param-name>
+      <param-value>true</param-value>
+    </init-param>    
+  	
+  </filter>
+  <filter-mapping>
+    <filter-name>AuditingFilter1</filter-name>
+    <url-pattern>
+  		/*
+  	</url-pattern>
+  	
+  	<!-- REQUEST Type Dispatcher means that the request is going to pass through the filter
+  	only when it's coming directly from the client's browser. It is the default and can be omitted
+  	if no other dispatcher type is declared... -->
+  	<dispatcher>REQUEST</dispatcher>
+  	<!-- If you want the request to pass through the filter only when it is being forwarded by
+  	the error handling mechanism towards the error page you must specify dispatcher type ERROR only. -->
+  	<dispatcher>ERROR</dispatcher>
+  	<!-- You can combine dispatcher declarations to handle the corresponding cases. -->
+  </filter-mapping>
+  
+  <filter>
+    <filter-name>AuditingFilter2</filter-name>
+    <filter-class>
+  		osotnikov.demowebapp.web.filter.AuditingFilter2
+  	</filter-class>
+  	
+  	<init-param>
+      <param-name>enabled</param-name>
+      <param-value>true</param-value>
+    </init-param> 
+  	
+  </filter>
+  <filter-mapping>
+    <filter-name>AuditingFilter2</filter-name>
+    <url-pattern>
+  		/*
+  	</url-pattern>
+  	<dispatcher>REQUEST</dispatcher>
+  </filter-mapping>
+  
+  <filter>
+    <filter-name>FilterForForwards</filter-name>
+    <filter-class>
+  		osotnikov.demowebapp.web.filter.FilterForForwards
+  	</filter-class>
+  	
+  	<init-param>
+      <param-name>enabled</param-name>
+      <param-value>true</param-value>
+    </init-param> 
+  	
+  </filter>
+  <filter-mapping>
+    <filter-name>FilterForForwards</filter-name>
+    <url-pattern>
+  		/*
+  	</url-pattern>
+  	<!-- If you want the request to only pass through the filter when it is being forwarded you must
+  	specify dispatcher type FORWARD only. -->
+  	<dispatcher>FORWARD</dispatcher>
+  </filter-mapping>
+  
+  <filter>
+    <filter-name>FilterForIncludes</filter-name>
+    <filter-class>
+  		osotnikov.demowebapp.web.filter.FilterForIncludes
+  	</filter-class>
+  	
+  	<init-param>
+      <param-name>enabled</param-name>
+      <param-value>true</param-value>
+    </init-param> 
+  	
+  </filter>
+  <filter-mapping>
+    <filter-name>FilterForIncludes</filter-name>
+    <url-pattern>
+  		/*
+  	</url-pattern>
+  	<!-- If you want the request to pass through the filter only when it is being included through
+  	an include action (obviously not an include directive) you must specify dispatcher type INCLUDE only. -->
+  	<dispatcher>INCLUDE</dispatcher>
+  </filter-mapping>
+  
+  <filter>
+    <filter-name>AuthenticatedUserStateProviderFilter</filter-name>
+    <filter-class>
+  		osotnikov.demowebapp.web.filter.AuthenticatedUserStateProviderFilter
+  	</filter-class>
+  	
+  	<init-param>
+      <param-name>enabled</param-name>
+      <param-value>true</param-value>
+    </init-param> 
+  	
+  </filter>
+  <filter-mapping>
+    <filter-name>AuthenticatedUserStateProviderFilter</filter-name>
+    <url-pattern>
+  		/*
+  	</url-pattern>
+  	<dispatcher>REQUEST</dispatcher>
+  	<dispatcher>FORWARD</dispatcher>
+  	<dispatcher>ERROR</dispatcher>
+  </filter-mapping>
+
+  <login-config>
+    <auth-method>FORM</auth-method>
+    <form-login-config>
+      <!-- <form-login-page>/public_JSP/welcome.jsp</form-login-page> -->
+      <form-login-page>/secure/login.jsp</form-login-page>
+      <form-error-page>/secure/login.jsp?auth-error=1</form-error-page>
+    </form-login-config>
+  </login-config>
+   
+  <security-constraint>
+    <web-resource-collection>
+      <web-resource-name>Https_Resources</web-resource-name>
+      <url-pattern>/*</url-pattern>
+    </web-resource-collection>
+    <user-data-constraint>
+      <description>highest supported transport security level</description>
+      <transport-guarantee>CONFIDENTIAL</transport-guarantee>
+    </user-data-constraint>
+  </security-constraint>
+  
+  <security-constraint>
+    <web-resource-collection>
+      <web-resource-name>Secured and Access Controlled Content</web-resource-name>
+      <url-pattern>/secure/authenticated/*</url-pattern>
+    </web-resource-collection>
+    <auth-constraint>
+      <role-name>ADMINISTRATOR</role-name>
+      <role-name>USER</role-name>
+    </auth-constraint>
+  </security-constraint>
+  
+  <security-role>
+    <role-name>ADMINISTRATOR</role-name>
+  </security-role>
+  <security-role>
+    <role-name>USER</role-name>
+  </security-role>
+  <security-role>
+    <role-name>DEFAULT</role-name>
+  </security-role>
+  
+  <session-config>
+    <session-timeout>60</session-timeout>
+    <cookie-config>
+      <name>WLS_WEB_DEMO_SESSIONID</name>
+    </cookie-config>
+  </session-config>
+</web-app>

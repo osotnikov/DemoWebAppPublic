@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence version="2.0" xmlns="http://java.sun.com/xml/ns/persistence"
+             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             xsi:schemaLocation="http://java.sun.com/xml/ns/persistence http://java.sun.com/xml/ns/persistence/persistence_2_0.xsd">
+ 
+  <persistence-unit name="web_demo_pu" transaction-type="JTA">
+    <provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>
+    <jta-data-source>WEB_DEMO</jta-data-source>
+    
+    <!-- Classes that belong to this persistence unit. -->
+    <class>osotnikov.demowebapp.services.user_management.vo.User</class>
+    <class>osotnikov.demowebapp.services.fibonacci.entity.FibCompBill</class>
+    <!--<class>osotnikov.demowebapp.services.fibonacci.entity.FibCompHistory</class>-->
+    
+    <exclude-unlisted-classes>true</exclude-unlisted-classes>
+    
+    <properties>
+    <!-- DO NOT DECLARE THESE PROPETIES AS THEY ARE ALREADY DECLARED IN THE DATASOURCE CONFIGURATION 
+      <property name="eclipselink.target-database" value="Oracle11"/>
+      <property name="javax.persistence.jdbc.driver" value="oracle.jdbc.xa.client.OracleXADataSource"/>
+      <property name="javax.persistence.jdbc.url" value="jdbc:oracle:thin:@localhost:1521:XE"/>
+      <property name="javax.persistence.jdbc.user" value="WEB_DEMO"/> 
+      <property name="javax.persistence.jdbc.password" value="WEB_DEMO"/>WILL NOT WORK IF YOU DECLARE THEM HERE TOO. --> 
+      
+      <property name="javax.persistence.jtaDataSource"  value="WEB_DEMO" />
+      
+      <!-- Automatic Table Creation from Entities at Startup -->
+      <property name="eclipselink.ddl-generation" value="create-tables"/>
+      <property name="eclipselink.ddl-generation.output-mode" value="both"/>
+      <property name="eclipselink.deploy-on-startup" value="true"/>
+
+      <!-- logging -->
+      <!-- log JPA Statements -->
+      <property name="eclipselink.logging.level" value="FINE"/>
+      <!-- also log of the values of the parameters used for the query -->
+      <property name="eclipselink.logging.parameters" value="true"/>
+     
+    </properties>
+
+  </persistence-unit>
+   
+  <persistence-unit name="web_demo_crm_pu" transaction-type="JTA">
+    <provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>
+    <!-- see step 2 below -->
+    <jta-data-source>WEB_DEMO_CRM</jta-data-source>
+    
+    <!-- Classes that belong to this persistence unit. -->
+    <class>osotnikov.demowebapp.services.fibonacci.entity.FibCompCrmLog</class>
+    
+    <exclude-unlisted-classes>true</exclude-unlisted-classes>
+    
+    <properties>
+      
+      <property name="javax.persistence.jtaDataSource"  value="WEB_DEMO_CRM" />
+      
+      <!-- Automatic Table Creation from Entities at Startup -->
+      <property name="eclipselink.ddl-generation" value="create-tables"/>
+      <property name="eclipselink.ddl-generation.output-mode" value="both"/>
+      <property name="eclipselink.deploy-on-startup" value="true"/>
+ 	  
+      <!-- logging -->
+      <!-- log JPA Statements -->
+      <property name="eclipselink.logging.level" value="FINE"/>
+      <!-- also log of the values of the parameters used for the query -->
+      <property name="eclipselink.logging.parameters" value="true"/>
+    </properties>
+  </persistence-unit>
+
+  <!-- 
+  <persistence-unit name="web_demo_nonxa_pu" transaction-type="RESOURCE_LOCAL">
+    <provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>
+    see step 2 below 
+    <non-jta-data-source>WEB_DEMO_NONXA</non-jta-data-source>
+    
+     Classes that belong to this persistence unit. 
+    <class>osotnikov.demowebapp.services.fibonacci.entity.FibCompHistory</class>
+    
+    <exclude-unlisted-classes>true</exclude-unlisted-classes>
+    
+    <properties>
+ 
+      <property name="javax.persistence.nonJtaDataSource"  value="WEB_DEMO" />
+      
+       Automatic Table Creation from Entities at Startup 
+      <property name="eclipselink.ddl-generation" value="create-tables"/>
+      <property name="eclipselink.ddl-generation.output-mode" value="both"/>
+      <property name="eclipselink.deploy-on-startup" value="true"/>
+
+       logging 
+       log JPA Statements 
+      <property name="eclipselink.logging.level" value="FINE"/>
+       also log of the values of the parameters used for the query 
+      <property name="eclipselink.logging.parameters" value="true"/>
+      
+      
+    </properties>
+
+  </persistence-unit>
+   -->
+</persistence>

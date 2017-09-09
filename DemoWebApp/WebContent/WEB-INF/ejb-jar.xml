@@ -1,0 +1,156 @@
+<ejb-jar xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+    xmlns="http://java.sun.com/xml/ns/javaee" 
+    xmlns:ejb="http://java.sun.com/xml/ns/javaee/ejb-jar_3_1.xsd" 
+    xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/ejb-jar_3_1.xsd" 
+    version="3.1"> <!-- SINGLETON BEANS WERE INTRODUCED IN 3.1 !!!! -->
+<enterprise-beans>
+
+	<session>
+	
+		<ejb-name>LifecycleScopeAndConcurrencyExperimentsSingleton</ejb-name>
+		<business-local>osotnikov.demowebapp.services.concurrency.LifecycleScopeAndConcurrencyExperimentsLocal</business-local>
+        <ejb-class>osotnikov.demowebapp.services.concurrency.LifecycleScopeAndConcurrencyExperimentsSingleton</ejb-class>
+	
+		<session-type>Singleton</session-type>  
+
+		
+        <init-on-startup>false</init-on-startup> 
+	
+		<transaction-type>Container</transaction-type>
+	
+	</session>
+	
+	<!--<session>
+	
+		<ejb-name>JdbcDaoServiceSingleton</ejb-name>
+        <ejb-class>osotnikov.demowebapp.services.jdbc.JdbcDaoServiceSingleton</ejb-class>
+	
+		<session-type>Singleton</session-type>  
+
+		
+        <init-on-startup>true</init-on-startup> 
+	
+		<transaction-type>Container</transaction-type>
+	
+	</session>-->
+<!-- 
+	<session>
+	
+		<ejb-name>FibonacciComputationsStoreSingleton</ejb-name>
+		<business-local>osotnikov.demowebapp.services.fibonacci.FibonacciComputationsStoreLocal</business-local>
+		
+        <ejb-class>osotnikov.demowebapp.services.fibonacci.FibonacciComputationsStoreSingleton</ejb-class>
+	
+		<session-type>Singleton</session-type>  
+        <init-on-startup>false</init-on-startup> 
+	
+		<transaction-type>Container</transaction-type>
+	
+		<resource-ref>
+		    <res-ref-name>jms/CF</res-ref-name>
+		    <res-type>javax.jms.ConnectionFactory</res-type>
+		    <res-auth>Container</res-auth>
+		    <res-sharing-scope>Shareable</res-sharing-scope>
+		    
+		    <injection-target>
+		    	<injection-target-class>osotnikov.demowebapp.services.fibonacci.FibonacciComputationsStoreSingleton</injection-target-class>
+		    	<injection-target-name>conFactory</injection-target-name>
+		  	</injection-target> 
+		</resource-ref>
+		
+		<resource-ref>
+		    <res-ref-name>jms/Q</res-ref-name>
+		    <res-type>javax.jms.Queue</res-type>
+		    <res-auth>Container</res-auth>
+		    <res-sharing-scope>Shareable</res-sharing-scope>
+		    
+		    <injection-target>
+		    	<injection-target-class>osotnikov.demowebapp.services.fibonacci.FibonacciComputationsStoreSingleton</injection-target-class>
+		    	<injection-target-name>fibonnaciQueue</injection-target-name>
+		  	</injection-target> 
+		</resource-ref>
+	
+	</session>
+	 -->
+	<session>
+	
+		<ejb-name>ButtonDemoSingleton</ejb-name>
+		<business-local>osotnikov.demowebapp.swingexample.ButtonDemoSingleton</business-local>
+		
+        <ejb-class>osotnikov.demowebapp.swingexample.ButtonDemoSingletonImpl</ejb-class>
+	
+		<session-type>Singleton</session-type>  
+        <init-on-startup>false</init-on-startup> 
+	
+		<transaction-type>Container</transaction-type>
+	
+	</session>
+	
+	<!-- ... 
+	
+	<message-driven>
+	
+      <ejb-name>ComputeFibonacciMDB</ejb-name>
+      
+      <ejb-class>osotnikov.demowebapp.services.mdb.ComputeFibonacciMDB</ejb-class>
+      
+      <messaging-type>javax.jms.MessageListener</messaging-type>
+      
+      <transaction-type>Container</transaction-type>
+      
+      <activation-config>
+      
+        <activation-config-property>
+          <activation-config-property-name>destinationType</activation-config-property-name>
+          <activation-config-property-value>javax.jms.Queue</activation-config-property-value>
+        </activation-config-property>
+        
+        <activation-config-property>
+          <activation-config-property-name>connectionFactoryJndiName</activation-config-property-name>
+          <activation-config-property-value>WebAppDemo/jms/conFactories/CF</activation-config-property-value>
+        </activation-config-property> 
+        
+        <activation-config-property>
+          <activation-config-property-name>destination</activation-config-property-name>
+          <activation-config-property-value>WebAppDemo/jms/queues/computationalRequestsQueue</activation-config-property-value>
+        </activation-config-property> 
+        
+      </activation-config>
+      
+      <ejb-local-ref>
+          <ejb-ref-name>FibonacciComputationsStoreSingleton</ejb-ref-name>
+          <ejb-ref-type>Session</ejb-ref-type>
+          <local>osotnikov.demowebapp.services.fibonacci.FibonacciComputationsStoreLocal</local>
+          <ejb-link>FibonacciComputationsStoreSingleton</ejb-link>
+          
+          <injection-target>
+           	The name of the class into which the resource reference is going to be injected. 
+		    <injection-target-class>osotnikov.demowebapp.services.mdb.ComputeFibonacciMDB</injection-target-class>
+		    The name of the field into which the resource reference is going to be injected.
+		    <injection-target-name>fibCompStore</injection-target-name>
+		  </injection-target>
+      </ejb-local-ref>
+      
+    </message-driven>  
+	-->
+	<!-- 
+    <message-driven>
+        <ejb-name>MessageMDB</ejb-name>
+        <ejb-class>mdbejbtier.MessageMDB</ejb-class>
+        <messaging-type>javax.jms.MessageListener</messaging-type>
+	    <env-entry>
+	        <env-entry-name>insertion</env-entry-name>
+	        <env-entry-type>java.lang.String</env-entry-type>
+	        <env-entry-value>Ubacio_Prvi_deo</env-entry-value>
+	    </env-entry>
+	    <env-entry>
+	        <env-entry-name>updation</env-entry-name>
+	        <env-entry-type>java.lang.String</env-entry-type>
+	                <env-entry-value>Ubacio_Drugi_deo</env-entry-value>
+	    </env-entry>
+ 
+    </message-driven>
+  	-->
+</enterprise-beans>
+</ejb-jar>
+

@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<weblogic-ejb-jar xmlns="http://xmlns.oracle.com/weblogic/weblogic-ejb-jar" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/ejb-jar_3_1.xsd http://xmlns.oracle.com/weblogic/weblogic-ejb-jar http://xmlns.oracle.com/weblogic/weblogic-ejb-jar/1.4/weblogic-ejb-jar.xsd">
+
+	<weblogic-enterprise-bean>
+
+		<ejb-name>FibonacciComputationsStoreSingleton</ejb-name>
+		
+		<resource-description>
+			<res-ref-name>jms/CF</res-ref-name>
+			<jndi-name>WebAppDemo/jms/conFactories/CF</jndi-name>
+		</resource-description>
+		
+		<resource-description>
+			<res-ref-name>jms/Q</res-ref-name>
+			<jndi-name>WebAppDemo/jms/queues/computationalRequestsQueue</jndi-name>
+		</resource-description>
+		
+		 <dispatch-policy>wm/UOOListener</dispatch-policy>  
+	
+	</weblogic-enterprise-bean>
+	
+	<!-- 
+	<work-manager>
+	
+		<name>wm/UOOListener</name>
+		<min-threads-constraint>
+		<name>wm/UOOListener-MIN</name>
+		<count>10</count>
+		</min-threads-constraint>
+		<max-threads-constraint>
+		<name>wm/UOOListener-MAX</name>
+		<count>30</count>
+		</max-threads-constraint>
+		
+	</work-manager>
+ 	-->
+ 	
+</weblogic-ejb-jar>

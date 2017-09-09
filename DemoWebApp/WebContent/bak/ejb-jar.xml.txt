@@ -1,0 +1,39 @@
+<ejb-jar xmlns="http://java.sun.com/xml/ns/javaee"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/ejb-jar_3_0.xsd"
+         version="3.0">
+         
+  <enterprise-beans>
+  	
+    <session>
+      <ejb-name>CountryInfoLocalDataBean</ejb-name>
+      <business-local>osotnikov.services.CountryInfoLocal</business-local>
+        <!-- NO REMOTE INTERFACE SUPPORTED  -->
+      <ejb-class>osotnikov.services.CountryInfoLocalDataBean</ejb-class>
+      <session-type>Stateless</session-type>
+      <transaction-type>Container</transaction-type>
+    </session>
+    
+    <session>
+      <ejb-name>CountryInfoWsDataBean</ejb-name>
+      <business-local>osotnikov.services.CountryInfoLocal</business-local>
+     	<!-- NO REMOTE INTERFACE SUPPORTED  -->
+      <ejb-class>osotnikov.services.CountryInfoWsDataBean</ejb-class>
+      <session-type>Stateless</session-type>
+      <transaction-type>Container</transaction-type>
+    </session>
+     
+     
+    <session>
+      <ejb-name>CountryInfoAdaptiveBean</ejb-name>
+      <business-local>osotnikov.services.CountryInfoLocal</business-local>
+      <business-remote>osotnikov.services.CountryInfoRemote</business-remote>
+      <ejb-class>osotnikov.services.CountryInfoAdaptiveBean</ejb-class>
+      <session-type>Stateless</session-type>
+      <transaction-type>Container</transaction-type>
+    </session>
+    
+    
+  </enterprise-beans>
+  
+</ejb-jar>
